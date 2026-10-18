@@ -1,10 +1,28 @@
 <!doctype html><html><head><meta charset=utf8>
 <meta name="robots" content="noindex, nofollow"><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}
-/* Landing illustration: a Builder at the bench (opens the page) */
-.hx-photo { padding-bottom: clamp(20px, 3vw, 40px); }
-.hx-photo picture, .hx-photo img { display: block; width: 100%; }
-.hx-photo img { height: auto; aspect-ratio: 21 / 9; object-fit: cover; object-position: 30% 38%; border-radius: 18px; background: #F4F0E6; }
-@media (max-width: 640px) { .hx-photo img { aspect-ratio: 4 / 3; object-position: 26% 45%; border-radius: 12px; } }
+/* Landing illustration: a Builder at the bench, LED alive */
+.hx-grid { grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); grid-template-areas: "copy art" "copy lab"; align-items: start; row-gap: clamp(20px, 2.4vw, 32px); }
+.hx-copy { grid-area: copy; align-self: center; }
+.hxb { grid-area: art; }
+.hx-grid > .hx-lab { grid-area: lab; }
+.hxb-in { position: relative; overflow: hidden; border-radius: 18px; aspect-ratio: 4 / 3; background: #F4F0E6; box-shadow: 0 24px 48px -28px rgba(8,8,16,.45); }
+.hxb-mv { position: absolute; inset: 0; transform-origin: 58.9% 71.3%; animation: hxb-drift 16s ease-in-out infinite alternate; }
+.hxb-mv picture, .hxb-mv img { display: block; width: 100%; height: 100%; }
+.hxb-mv img { object-fit: cover; }
+.hxb-glow, .hxb-spill, .hxb-sp { position: absolute; left: 58.9%; top: 71.3%; pointer-events: none; border-radius: 50%; }
+.hxb-glow { width: 24%; aspect-ratio: 1; transform: translate(-50%, -50%); mix-blend-mode: screen;
+  background: radial-gradient(circle, rgba(255,226,160,1) 0, rgba(255,160,50,.85) 16%, rgba(255,92,0,.38) 40%, rgba(255,92,0,0) 70%); animation: hxb-pulse 2.6s ease-in-out infinite; }
+.hxb-spill { width: 85%; aspect-ratio: 1; transform: translate(-50%, -50%); mix-blend-mode: soft-light;
+  background: radial-gradient(circle, rgba(255,140,30,.95) 0, rgba(255,120,20,.35) 35%, rgba(255,120,20,0) 65%); animation: hxb-spill 2.6s ease-in-out infinite; }
+.hxb-sp { width: 5px; height: 5px; margin: -2px; background: #FFC27A; box-shadow: 0 0 6px 2px rgba(255,140,40,.8); opacity: 0; animation: hxb-rise 3.2s ease-out infinite; }
+.hxb-sp.s2 { animation-delay: .8s; --dx: -18px; } .hxb-sp.s3 { animation-delay: 1.6s; --dx: 14px; } .hxb-sp.s4 { animation-delay: 2.4s; --dx: -6px; }
+@keyframes hxb-drift { from { transform: scale(1); } to { transform: scale(1.06) translate(-1%, -1.5%); } }
+@keyframes hxb-pulse { 0%, 100% { opacity: .75; transform: translate(-50%, -50%) scale(.9); } 50% { opacity: 1; transform: translate(-50%, -50%) scale(1.15); } 52% { opacity: .85; } 54% { opacity: 1; } }
+@keyframes hxb-spill { 0%, 100% { opacity: .55; } 50% { opacity: 1; } }
+@keyframes hxb-rise { 0% { opacity: 0; transform: translate(0, 0) scale(.6); } 15% { opacity: 1; } 100% { opacity: 0; transform: translate(var(--dx, 8px), -70px) scale(1.1); } }
+@media (max-width: 900px) { .hx-grid { grid-template-columns: minmax(0, 1fr); grid-template-areas: "art" "copy" "lab"; } }
+@media (max-width: 640px) { .hxb-in { border-radius: 12px; } }
+@media (prefers-reduced-motion: reduce) { .hxb-mv, .hxb-glow, .hxb-spill { animation: none; } .hxb-sp { display: none; } }
 </style></head><body>
 <title>MAKEON (beta)</title>
 <meta name="description" content="MAKEON: kits, Builder Books, an academy and weekly science labs for young builders. Nothing demonstrated. Everything built.">
@@ -2316,7 +2334,6 @@ window.MKLab = (function () {
 </div>
 </section>
 </div><div class="page" id="home" data-title="MAKEON" data-nav="home"><section class="section hx">
-<div class="container hx-photo"><picture><source type="image/webp" srcset="img/builder-at-the-bench-900.webp 900w, img/builder-at-the-bench.webp 1774w" sizes="(max-width: 1240px) 100vw, 1200px"><img src="img/builder-at-the-bench.jpg" width="1774" height="887" alt="A teenage Builder at a workshop bench, smiling as he presses an orange jumper wire into a breadboard and a small LED lights up orange. Headphones rest round his neck. Around him are tools, a parts box, sensors, motors and an open notebook of circuit sketches, in a bright maker lab with stools, shelves of parts, a 3D printer, plants and tall windows." fetchpriority="high" decoding="async"></picture></div>
 <div class="container hx-grid">
   <div class="hx-copy">
     <span class="eyebrow">For anyone who loves solving problems. Any age.</span>
@@ -2326,6 +2343,7 @@ window.MKLab = (function () {
     <p class="hx-sig"><span class="blk blk-void">Nothing demonstrated.</span><span class="blk blk-signal">Everything built.</span></p>
     <div class="arc-hero"><span class="arc-mk"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="#0F1B3D"/><path d="M11.6 40.5 L22.6 8.5" stroke="#F4F0E6" stroke-width="5"/><path d="M36.4 40.5 L25.4 8.5" stroke="#F4F0E6" stroke-width="5"/><path d="M28 4 L12 26 L22 26 L18 44 L36 20 L26 20 Z" fill="#FF5C00" transform="translate(24 27) rotate(-72) scale(0.52) translate(-24 -24)"/></svg></span><div class="arc-hero-t"><strong>Meet ARC, your AI guide.</strong> Ask anything about MAKEON, the kits or this week’s Science Lab.</div><div class="arc-hero-b"><button type="button" class="btn btn-primary" data-arc-open>Talk to ARC</button><a class="btn btn-ghost" href="https://bench.makeon.build/signin">Join Builder’s Bench</a></div></div>
   </div>
+  <div class="hxb"><div class="hxb-in"><div class="hxb-mv"><picture><source type="image/webp" srcset="img/builder-bench-720.webp 720w, img/builder-bench.webp 1183w" sizes="(max-width: 900px) 100vw, 560px"><img src="img/builder-bench.jpg" width="1183" height="887" alt="A teenage Builder at a workshop bench, smiling as he presses an orange jumper wire into a breadboard and a small LED lights up orange. Headphones rest round his neck. Around him are tools, a parts box, sensors and an open notebook of circuit sketches, in a bright maker lab with shelves of parts, plants and tall windows." fetchpriority="high" decoding="async"></picture><span class="hxb-spill"></span><span class="hxb-glow"></span><span class="hxb-sp"></span><span class="hxb-sp s2"></span><span class="hxb-sp s3"></span><span class="hxb-sp s4"></span></div></div></div>
   <label for="pg-lab" data-go="lab" role="link" tabindex="0" class="card hx-lab">
     <span class="hx-tag">New every Monday</span>
     <svg class="hx-art" viewBox="0 0 320 150" aria-hidden="true"><rect width="320" height="150" rx="14" fill="#0F1B3D"/><path d="M0 98 L150 76" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/><path d="M160 34 L205 112 L115 112 Z" fill="rgba(150,205,255,.18)" stroke="rgba(190,225,255,.9)" stroke-width="2"/><g stroke-width="3.2" stroke-linecap="round" opacity=".95"><path d="M176 80 L320 52" stroke="#FF3B30"/><path d="M177 83 L320 66" stroke="#FF9500"/><path d="M178 86 L320 80" stroke="#FFD60A"/><path d="M178 89 L320 94" stroke="#34C759"/><path d="M178 92 L320 108" stroke="#32ADE6"/><path d="M177 95 L320 122" stroke="#AF52DE"/></g></svg>
