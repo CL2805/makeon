@@ -1437,7 +1437,7 @@ html:is([lang="ta"], [lang="ml"], [lang="te"]) .arc-launch { font-family: var(--
     <div class="stack">
       <span class="eyebrow">Trial session</span>
       <h2>One session. One&nbsp;build.</h2>
-      <p class="lead">A parent books, the child builds. We only ask for your child's first name and&nbsp;age.</p>
+      <p class="lead">A parent books, the child builds and takes the build home the same day. Free. We only ask for your child's first name and age.</p>
     </div>
     <form class="form" data-thanks="We will call you to confirm a trial session and share fees.">
       <div class="field"><label for="b-child">Child's first name</label><input id="b-child" type="text"></div>
@@ -3284,4 +3284,5 @@ window.MKLab = (function () {
   }
 })();
 </script>
-</body></html>
+<script id="mk-trial-link">(function(){function go(){if(location.hash!=='#trial')return;var l=document.querySelector('label[for="pg-academy"][data-go="trial"]');if(l){l.click();}}
+if(document.readyState!=='loading')setTimeout(go,60);else document.addEventListener('DOMContentLoaded',function(){setTimeout(go,60);});window.addEventListener('hashchange',go);})();</script></body></html>
