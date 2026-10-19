@@ -23,6 +23,17 @@
 @media (max-width: 900px) { .hx-grid { grid-template-columns: minmax(0, 1fr); grid-template-areas: "art" "copy" "lab"; } }
 @media (max-width: 640px) { .hxb-in { border-radius: 12px; } }
 @media (prefers-reduced-motion: reduce) { .hxb-mv, .hxb-glow, .hxb-spill { animation: none; } .hxb-sp { display: none; } }
+
+/* Academy page illustration */
+.acb { position: relative; overflow: hidden; border-radius: 18px; aspect-ratio: 2 / 1; background: #F4F0E6; box-shadow: 0 24px 48px -28px rgba(8,8,16,.45); }
+.acb-mv { position: absolute; inset: 0; animation: hxb-drift 18s ease-in-out infinite alternate; transform-origin: 50% 70%; }
+.acb-mv picture, .acb-mv img { display: block; width: 100%; height: 100%; }
+.acb .hxb-glow { width: 9%; }
+.acb .hxb-spill { width: 34%; }
+@media (min-width: 901px) { .acad-top { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(28px, 4vw, 56px); align-items: center; } }
+@media (max-width: 900px) { .acad-top { display: flex; flex-direction: column; gap: 28px; } }
+@media (max-width: 640px) { .acb { border-radius: 12px; } }
+@media (prefers-reduced-motion: reduce) { .acb-mv { animation: none; } }
 </style></head><body>
 <title>MAKEON (beta)</title>
 <meta name="description" content="MAKEON: kits, Builder Books, an academy and weekly science labs for young builders. Nothing demonstrated. Everything built.">
@@ -1340,11 +1351,14 @@ html:is([lang="ta"], [lang="ml"], [lang="te"]) .arc-launch { font-family: var(--
 </section>
 </div><div class="page" id="academy" data-title="Academy | MAKEON" data-nav="academy"><section class="section tight">
 <div class="container stack-lg">
+  <div class="acad-top">
   <div class="head">
     <span class="eyebrow">MAKEON Academy</span>
     <h1>Learn to build with a&nbsp;mentor.</h1>
     <p class="lead">Real parts, builders at the same level, and a mentor who guides your hands but never takes over. Choose the format that suits&nbsp;you.</p>
     <div class="row"><label for="pg-academy" data-go="trial" role="link" tabindex="0" class="btn btn-primary">Book a trial session</label></div>
+  </div>
+  <div class="acb"><div class="acb-mv"><picture><source type="image/webp" srcset="img/academy-session-900.webp 900w, img/academy-session.webp 1774w" sizes="(max-width: 1240px) 100vw, 1200px"><img src="img/academy-session.jpg" width="1774" height="887" alt="An evening MAKEON Academy session: teenage boys and girls build circuits and small robot cars in pairs at long workbenches with breadboards, parts boxes and open Builder Books, while a mentor leans in to ask a question. Orange LEDs glow on the breadboards. Around the room are a pegboard of tools, parts bins, a 3D printer, and a wall with a drone, a robotic arm and a rover." decoding="async"></picture><span class="hxb-spill" style="left:22.4%;top:79.5%;animation-delay:0s"></span><span class="hxb-glow" style="left:22.4%;top:79.5%;animation-delay:0s"></span><span class="hxb-sp" style="left:22.4%;top:79.5%;animation-delay:0.4s"></span><span class="hxb-sp s3" style="left:22.4%;top:79.5%;animation-delay:2s"></span><span class="hxb-spill" style="left:81.7%;top:71.9%;animation-delay:1.3s"></span><span class="hxb-glow" style="left:81.7%;top:71.9%;animation-delay:1.3s"></span><span class="hxb-sp" style="left:81.7%;top:71.9%;animation-delay:1.7000000000000002s"></span><span class="hxb-sp s3" style="left:81.7%;top:71.9%;animation-delay:3.3s"></span></div></div>
   </div>
   <div class="grid g3">
     <label for="pg-academy" data-go="chennai" role="link" tabindex="0" class="card"><span class="eyebrow" style="color: var(--ink-3)">After school</span><h3>Academies in Chennai and&nbsp;Puducherry</h3><p class="muted">Anna Nagar, Chennai and Reddiyarpalayam, Puducherry, opening November 2026. One 2-hour session a week, a level every four months. Small batches, run by MAKEON&nbsp;mentors.</p><span class="link">How the week works</span></label>
